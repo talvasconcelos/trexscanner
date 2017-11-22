@@ -1,8 +1,13 @@
+require('dotenv').config()
+
 const bittrex = require('node-bittrex-api')
 const crypto = require('crypto-exchange')
 const _ = require('lodash')
 const fs = require('fs')
 const tech = require('technicalindicators')
+
+const Slimbot = require('slimbot');
+const slimbot = new Slimbot(process.env['TELEGRAM_BOT_TOKEN']);
 
 process.env.UV_THREADPOOL_SIZE = 128
 //const SMA = require('technicalindicators').SMA;
@@ -91,6 +96,7 @@ const tradePair = (arr) => {
     if(volume[0] > 1 && rsi[0] > 50 && rsi[0] < 70 && fromBellow && ema10[0] > ema30[0]){
     //if( volume[0] > 1 && input > ema30[0] /*&& rsi[0] > 60 && rsi[0] < 80 && rsi[1] < rsi[0]*/){
       console.log('Trade : ', arr.pair, 'vol = ', volume[0])
+      slimbot.sendMessage(311268748, 'Trade : ' + arr.pair + 'https://bittrex.com/Market/Index?MarketName=' + arr.pair)
       //found = true
       let output = arr.pair
     }
