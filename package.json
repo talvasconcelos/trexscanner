@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Tiago Vasconcelos",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "dotenv": "^4.0.0",
     "node-bittrex-api": "^0.7.6",
