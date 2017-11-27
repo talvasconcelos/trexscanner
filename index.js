@@ -168,7 +168,7 @@ const getMarkets = () => {
   .then( () => Promise.all(out))
   .then(res => {
     if(!found)
-      setTimeout(y, 60000)
+      setTimeout(y, 59000)
   })
 }
 
