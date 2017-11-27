@@ -7,7 +7,6 @@ const Slimbot = require('slimbot');
 const slimbot = new Slimbot(process.env['TELEGRAM_BOT_TOKEN']);
 //slimbot.startPolling()
 
-process.env.UV_THREADPOOL_SIZE = 128
 //const SMA = require('technicalindicators').SMA;
 //const SMA = require('technicalindicators').SMA;
 tech.setConfig('precision', 8)
