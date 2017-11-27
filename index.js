@@ -1,4 +1,4 @@
-require('dotenv').config()
+//require('dotenv').config()
 
 const bittrex = require('node-bittrex-api')
 const crypto = require('crypto-exchange')
