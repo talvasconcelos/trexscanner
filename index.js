@@ -8,6 +8,7 @@ const tech = require('technicalindicators')
 
 const Slimbot = require('slimbot');
 const slimbot = new Slimbot(process.env['TELEGRAM_BOT_TOKEN']);
+//slimbot.startPolling()
 
 process.env.UV_THREADPOOL_SIZE = 128
 //const SMA = require('technicalindicators').SMA;
@@ -94,9 +95,13 @@ const tradePair = (arr) => {
     //threePeriodBull ? console.log(arr.pair, 'as bullish pattern') : null
     //let bull = tech.threewhitesoldiers({open, close, high, low})
     if(volume[0] > 1 && rsi[0] > 50 && rsi[0] < 70 && fromBellow && ema10[0] > ema30[0]){
+
     //if( volume[0] > 1 && input > ema30[0] /*&& rsi[0] > 60 && rsi[0] < 80 && rsi[1] < rsi[0]*/){
       console.log('Trade : ', arr.pair, 'vol = ', volume[0])
-      slimbot.sendMessage(311268748, 'Trade : ' + arr.pair + 'https://bittrex.com/Market/Index?MarketName=' + arr.pair)
+      let msg =
+        'Trade [' + arr.pair +'](https://bittrex.com/Market/Index?MarketName=' + arr.pair + ') *Vol: *' + volume[0] + ' *RSI: *' + rsi[0];
+      slimbot.sendMessage('@trexMarketScan', msg, {parse_mode: 'Markdown'})
+
       //found = true
       let output = arr.pair
     }
