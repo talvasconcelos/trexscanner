@@ -1,9 +1,6 @@
 //require('dotenv').config()
 
 const bittrex = require('node-bittrex-api')
-const crypto = require('crypto-exchange')
-const _ = require('lodash')
-const fs = require('fs')
 const tech = require('technicalindicators')
 
 const Slimbot = require('slimbot');
