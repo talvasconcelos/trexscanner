@@ -19,7 +19,7 @@ bittrex.options({
 let candles = []
 let rounds = 1
 let targetVol = 250
-let interval = 'fiveMin'
+let interval = 'thirtyMin'
 let found = false
 //let _pairs = pairs(2500)
 
@@ -90,7 +90,7 @@ const tradePair = (arr) => {
     let volume = close[2] > open[2] ? RVOL(v.slice(-52), 20).reverse() : 0
     //threePeriodBull ? console.log(arr.pair, 'as bullish pattern') : null
     //let bull = tech.threewhitesoldiers({open, close, high, low})
-    if(volume[0] > 1 && rsi[0] > 50 && rsi[0] < 70 && fromBellow && ema10[0] > ema30[0]){
+    if(volume[0] > 1 && rsi[0] > 45 && rsi[0] < 70 && fromBellow && ema10[0] > ema30[0]){
 
     //if( volume[0] > 1 && input > ema30[0] /*&& rsi[0] > 60 && rsi[0] < 80 && rsi[1] < rsi[0]*/){
       console.log('Trade : ', arr.pair, 'vol = ', volume[0])
@@ -168,7 +168,7 @@ const getMarkets = () => {
   .then( () => Promise.all(out))
   .then(res => {
     if(!found)
-      setTimeout(y, 300000)
+      setTimeout(y, 900000)
   })
 }
 
